@@ -1,6 +1,6 @@
 # Release Process
 
-1. Select and approve a license before describing the repository as open source.
+1. Confirm the MIT license text and package metadata remain aligned.
 2. Confirm version, changelog, compatibility statement, and migration notes.
 3. Run lint, format, type, tests with the initial 65 percent coverage gate, build, install smoke, manifest, and sensitive-data checks.
 4. Confirm distributions contain no local state, personal memory, credentials, session IDs, machine paths, private routes, or wake bindings.

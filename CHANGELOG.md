@@ -11,6 +11,7 @@ engineering milestones until the project owner authorizes a remote release.
 - Dry-run-first workspace registry, selective guide, synchronization, and health commands.
 - Provider-neutral adapter contracts and an explicit in-process broker.
 - Validated neutral registry, guide, and adapter examples for recipient overlays.
+- MIT license and public repository metadata.
 - Public engineering documentation, contribution guidance, and GitHub checks.
 - Architecture records for local-first persistence and explicit adapter limits.
 

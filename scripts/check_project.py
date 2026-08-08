@@ -14,6 +14,7 @@ REQUIRED = {
     ".github/workflows/tag-build.yml",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
+    "LICENSE",
     "README.md",
     "SECURITY.md",
     "docs/ARCHITECTURE.md",
@@ -51,8 +52,11 @@ def main() -> int:
         project = tomllib.load(handle)["project"]
     if project["version"] != package_version():
         errors.append("pyproject.toml and package __version__ differ")
-    if (ROOT / "LICENSE").exists():
-        errors.append("LICENSE exists before a license decision is recorded")
+    if project.get("license") != "MIT":
+        errors.append("pyproject.toml must declare the MIT SPDX license")
+    license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
+    if not license_text.startswith("MIT License\n"):
+        errors.append("LICENSE does not contain the MIT license text")
     if errors:
         print("Project checks failed:", file=sys.stderr)
         print("\n".join(f"- {error}" for error in errors), file=sys.stderr)

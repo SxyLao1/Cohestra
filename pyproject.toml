@@ -8,6 +8,8 @@ version = "0.1.0"
 description = "Local-first, auditable coordination for heterogeneous AI agents."
 readme = "README.md"
 requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Cohestra contributors" }]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -33,6 +35,11 @@ dev = [
 [project.scripts]
 cohestra = "cohestra.cli:main"
 cohestra-bridge = "cohestra.bridge.cli:main"
+
+[project.urls]
+Documentation = "https://github.com/SxyLao1/Cohestra#readme"
+Issues = "https://github.com/SxyLao1/Cohestra/issues"
+Source = "https://github.com/SxyLao1/Cohestra"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -94,6 +94,4 @@ mechanism is portable by default.
 ## Contribution and Governance
 
 See [Contributing](CONTRIBUTING.md), [Security](SECURITY.md), and the [Code of
-Conduct](CODE_OF_CONDUCT.md). No open-source license has been selected. Do not
-assume reuse, redistribution, or contribution rights beyond separately granted
-permission.
+Conduct](CODE_OF_CONDUCT.md). Cohestra is available under the [MIT License](LICENSE).

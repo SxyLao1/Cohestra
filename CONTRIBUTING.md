@@ -2,9 +2,9 @@
 
 ## Before proposing a change
 
-This repository is pre-release and has no selected open-source license. Obtain
-project-owner authorization before reusing code, submitting external patches,
-or publishing derived artifacts.
+This repository is pre-release and licensed under MIT. Contributions submitted
+to this repository are provided under the same license unless explicitly agreed
+otherwise before submission.
 
 Describe the problem, operational boundary, affected platforms, and verification
 evidence. Do not attach live bridge databases, credentials, session data,
