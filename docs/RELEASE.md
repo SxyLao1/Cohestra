@@ -1,5 +1,7 @@
 # Release Process
 
+[简体中文](zh-CN/RELEASE.md)
+
 1. Confirm the MIT license text and package metadata remain aligned.
 2. Confirm version, changelog, compatibility statement, and migration notes.
 3. Run lint, format, type, tests with the initial 65 percent coverage gate, build, install smoke, manifest, and sensitive-data checks.

@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import ast
+import re
 import sys
 import tomllib
 from pathlib import Path
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = {
@@ -16,17 +18,49 @@ REQUIRED = {
     "CONTRIBUTING.md",
     "LICENSE",
     "README.md",
+    "README.zh-CN.md",
     "SECURITY.md",
     "docs/ARCHITECTURE.md",
     "docs/ADAPTERS.md",
     "docs/INSTALLATION.md",
     "docs/SECURITY_MODEL.md",
+    "docs/zh-CN/ADAPTERS.md",
+    "docs/zh-CN/ARCHITECTURE.md",
+    "docs/zh-CN/CLI.md",
+    "docs/zh-CN/INSTALLATION.md",
+    "docs/zh-CN/RELEASE.md",
+    "docs/zh-CN/SECURITY_MODEL.md",
     "examples/adapter.py",
     "examples/registry.json",
     "examples/shared-guide.md",
     "pyproject.toml",
     "src/cohestra/__init__.py",
 }
+MARKDOWN_LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
+
+
+def broken_local_links() -> list[str]:
+    errors: list[str] = []
+    for document in sorted(ROOT.rglob("*.md")):
+        if any(part == ".git" for part in document.parts):
+            continue
+        text = document.read_text(encoding="utf-8")
+        for match in MARKDOWN_LINK.finditer(text):
+            target = match.group(1).strip().strip("<>")
+            if not target or target.startswith(("#", "http://", "https://", "mailto:")):
+                continue
+            target = unquote(target.split("#", 1)[0])
+            candidate = (document.parent / target).resolve()
+            try:
+                candidate.relative_to(ROOT)
+            except ValueError:
+                errors.append(
+                    f"markdown link escapes the project: {document.relative_to(ROOT)} -> {target}"
+                )
+            else:
+                if not candidate.exists():
+                    errors.append(f"broken markdown link: {document.relative_to(ROOT)} -> {target}")
+    return errors
 
 
 def package_version() -> str:
@@ -48,6 +82,7 @@ def main() -> int:
         for path in sorted(REQUIRED)
         if not (ROOT / path).is_file()
     ]
+    errors.extend(broken_local_links())
     with (ROOT / "pyproject.toml").open("rb") as handle:
         project = tomllib.load(handle)["project"]
     if project["version"] != package_version():

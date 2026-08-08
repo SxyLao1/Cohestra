@@ -1,5 +1,7 @@
 # Architecture
 
+[简体中文](zh-CN/ARCHITECTURE.md)
+
 Cohestra separates durable coordination facts from provider-specific execution. The schema-7 SQLite bridge stores task-scoped metadata at a caller-supplied path. An agent runtime or adapter decides whether and how to act on that state.
 
 | Component | Responsibility | Exclusion |
@@ -17,5 +19,7 @@ Cohestra separates durable coordination facts from provider-specific execution. 
 - Observation does not change authority or another agent's cursor.
 - Escalations hold non-sensitive evidence pointers, not secrets or transcripts.
 - Restore requires a distinct rollback destination.
+- A published event is data, not a wake request or executable command body.
+- Optional wake adapters fail closed as unsupported when absent or ineligible.
 
 SQLite WAL supports local coordination, not multi-host replication or identity enforcement. Back up before upgrading a bridge with active work.
