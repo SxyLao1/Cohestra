@@ -25,7 +25,7 @@ jobs:
       - run: python scripts/check_sensitive_data.py
       - run: python -m build
       - run: python scripts/check_dist.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cohestra-distributions
           path: dist/
