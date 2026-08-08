@@ -8,7 +8,7 @@
 | Schema-7 task, claim, leader, escalation, backup, restore | Implemented and locally tested | Exposed through `cohestra-bridge --db PATH`. |
 | Workspace registry, selective guide/sync/health | Implemented and locally tested | Exposed through `cohestra workspace`; mutation is explicit. |
 | Provider-neutral finite broker and adapters | Implemented and locally tested | Five provider descriptions, detection, and private-overlay scaffold are bundled; launch bindings remain recipient-local. |
-| Documentation and GitHub workflows | Configured and remotely validated on `main` | Run `31241967251` completed 11 CI jobs successfully. New branch changes remain pending PR CI. |
+| Documentation and GitHub workflows | Configured and remotely validated | Main run `31241967251` and PR #4 run `31243027807` each completed 11 CI jobs successfully. |
 | Main branch protection | Enabled | Force pushes and deletion are blocked; PRs, strict required checks, linear history, and conversation resolution are required. |
 | Package, release, and registry publication | Not performed | No GitHub Release or PyPI publication is claimed. |
 
@@ -34,4 +34,5 @@ The following checks passed on Windows with supported local Python runtimes:
 - Wheel and source distribution build and content inspection.
 - Isolated wheel CLI smoke for version, adapter detection, and bridge help.
 
-The multi-OS matrix completed successfully in GitHub Actions run `31241967251` on `main` (11 jobs). The current branch's adapter and documentation changes remain unverified until pull-request CI completes.
+The multi-OS matrix completed successfully in GitHub Actions run `31241967251`
+on `main` and run `31243027807` on PR #4 (11 jobs each).

@@ -20,5 +20,4 @@ engineering milestones until the project owner authorizes a remote release.
 ### Not released
 
 - No GitHub Release or package registry publication is represented by this
-  entry. GitHub CI has run successfully on `main`; changes in the current branch
-  remain subject to pull-request CI.
+  entry. GitHub CI has run successfully on `main` and on PR #4.
