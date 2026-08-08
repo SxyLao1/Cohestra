@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "agents": [
+    {
+      "id": "coordinator",
+      "skills": {
+        "mode": "manual"
+      }
+    },
+    {
+      "id": "worker",
+      "skills": {
+        "mode": "symlink"
+      }
+    }
+  ]
+}
