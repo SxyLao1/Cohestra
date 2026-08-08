@@ -58,4 +58,6 @@ jobs:
       - run: python -m pip install --force-reinstall dist/*.whl
       - run: cohestra --version
       - run: cohestra bridge --help
+      - run: cohestra adapters --help
+      - run: cohestra adapters detect
       - run: cohestra-bridge --help

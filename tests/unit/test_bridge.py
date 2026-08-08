@@ -549,7 +549,13 @@ class ConversationBridgeTests(unittest.TestCase):
         cursor_after = self.bridge.status("framework/bridge", "agent-alpha")["last_read_event_id"]
 
         self.assertEqual(cursor_before, cursor_after)
-        self.assertEqual(view["requests"], replay["requests"])
+        # age_seconds is derived from the observation time and may advance between reads.
+        for first, second in zip(view["requests"], replay["requests"], strict=True):
+            self.assertEqual(
+                {key: value for key, value in first.items() if key != "age_seconds"},
+                {key: value for key, value in second.items() if key != "age_seconds"},
+            )
+            self.assertLessEqual(first["age_seconds"], second["age_seconds"])
         self.assertEqual(view["summary"], replay["summary"])
         self.assertEqual(4, view["summary"]["requests"])
         self.assertEqual(1, view["summary"]["answered"])

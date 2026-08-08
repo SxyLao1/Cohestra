@@ -44,9 +44,6 @@ PRIVATE_MARKERS = tuple(
     for parts in (
         ("Agent", "Workspace"),
         ("generic", "-macos"),
-        ("Free", "buff"),
-        ("Work", "Buddy"),
-        ("Z", "Code"),
     )
 )
 

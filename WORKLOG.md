@@ -7,9 +7,10 @@
 | SQLite bridge | Implemented and locally tested | Source and focused tests define the package surface. |
 | Schema-7 task, claim, leader, escalation, backup, restore | Implemented and locally tested | Exposed through `cohestra-bridge --db PATH`. |
 | Workspace registry, selective guide/sync/health | Implemented and locally tested | Exposed through `cohestra workspace`; mutation is explicit. |
-| Provider-neutral finite broker and adapters | Implemented and locally tested | No provider or desktop wake binding is bundled as public default. |
-| Documentation and GitHub workflows | Configured | Static files are local; no remote workflow has been observed. |
-| Package, release, and registry publication | Remote-unverified / not performed | No remote mutation, GitHub Release, or PyPI publication is claimed. |
+| Provider-neutral finite broker and adapters | Implemented and locally tested | Five provider descriptions, detection, and private-overlay scaffold are bundled; launch bindings remain recipient-local. |
+| Documentation and GitHub workflows | Configured and remotely validated | Main run `31241967251` and PR #4 run `31243027807` each completed 11 CI jobs successfully. |
+| Main branch protection | Enabled | Force pushes and deletion are blocked; PRs, strict required checks, linear history, and conversation resolution are required. |
+| Package, release, and registry publication | Not performed | No GitHub Release or PyPI publication is claimed. |
 
 ## Extraction provenance
 
@@ -21,14 +22,17 @@ reproduce internal collaboration state.
 
 ## Local verification - 2026-08-08
 
-The following checks passed on Windows with Python 3.12:
+The following checks passed on Windows with supported local Python runtimes:
 
-- 61 tests with 67.72 percent branch coverage against a 65 percent initial gate.
+- 75 tests passed with one Windows-only POSIX-permission skip and 69.82 percent
+  branch coverage against a 65 percent initial gate.
 - Ruff lint and format checks across source, tests, and release scripts.
-- Mypy strict checking across 18 package source files.
+- Mypy strict checking across 23 package source files.
 - Actionlint checks for CI and tag-build workflows.
-- Project-contract and sensitive-data scans across 56 source and documentation text files.
-- Wheel and source distribution build, content inspection, and Twine metadata checks.
-- Isolated wheel CLI smoke for version, bridge/workspace help, schema-7 initialization, and health.
+- Project-contract, bilingual-link, and sensitive-data scans across 70 source and
+  documentation text files.
+- Wheel and source distribution build and content inspection.
+- Isolated wheel CLI smoke for version, adapter detection, and bridge help.
 
-The multi-OS matrix is configured but remains remote-unverified until the repository is hosted and CI runs.
+The multi-OS matrix completed successfully in GitHub Actions run `31241967251`
+on `main` and run `31243027807` on PR #4 (11 jobs each).

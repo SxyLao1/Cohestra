@@ -47,7 +47,9 @@ def inspect_wheel(path: Path) -> list[str]:
             {
                 "/cohestra/__init__.py",
                 "/cohestra/cli.py",
+                "/cohestra/adapters/providers.py",
                 "/cohestra/bridge/__init__.py",
+                "/cohestra/wake/policy.py",
                 "/cohestra/workspace/__init__.py",
             },
         )
@@ -70,11 +72,14 @@ def inspect_sdist(path: Path) -> list[str]:
             (member.name for member in archive.getmembers()),
             {
                 "/README.md",
+                "/README.zh-CN.md",
                 "/SECURITY.md",
                 "/docs/ARCHITECTURE.md",
+                "/docs/zh-CN/ARCHITECTURE.md",
                 "/examples/registry.json",
                 "/src/cohestra/__init__.py",
                 "/tests/unit/test_bridge.py",
+                "/tests/unit/test_wake_adapters.py",
             },
         )
 

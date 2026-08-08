@@ -10,12 +10,14 @@ engineering milestones until the project owner authorizes a remote release.
 - Schema-7 explicit-path SQLite bridge package and JSON CLI boundary.
 - Dry-run-first workspace registry, selective guide, synchronization, and health commands.
 - Provider-neutral adapter contracts and an explicit in-process broker.
+- Adapter `detect`, `configure`, and `health` commands with five-provider safe descriptions and private-overlay scaffolding.
 - Validated neutral registry, guide, and adapter examples for recipient overlays.
 - MIT license and public repository metadata.
-- Public engineering documentation, contribution guidance, and GitHub checks.
+- Bilingual public engineering documentation, contribution guidance, and GitHub checks.
+- Main branch protection with pull requests, strict required checks, linear history, conversation resolution, and force-push/deletion prevention.
 - Architecture records for local-first persistence and explicit adapter limits.
 
 ### Not released
 
-- No GitHub Release, package registry publication, or remote CI result is
-  represented by this entry.
+- No GitHub Release or package registry publication is represented by this
+  entry. GitHub CI has run successfully on `main` and on PR #4.

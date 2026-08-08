@@ -1,5 +1,9 @@
 # Cohestra
 
+[简体中文](README.zh-CN.md)
+
+[![CI](https://github.com/SxyLao1/Cohestra/actions/workflows/ci.yml/badge.svg)](https://github.com/SxyLao1/Cohestra/actions/workflows/ci.yml)
+
 Local-first, auditable coordination for heterogeneous AI agents.
 
 Cohestra provides a small, explicit coordination boundary for agents that share
@@ -11,9 +15,10 @@ and escalation evidence can be inspected and backed up.
 
 `0.1.0` is an alpha engineering baseline. The schema-7 SQLite bridge,
 workspace commands, adapter contracts, and in-process broker are implemented
-and locally tested. Recipient-specific provider adapters remain intentionally
-outside the package. This repository has not been remotely validated, released,
-or published.
+and locally tested. The package includes safe descriptions and detection for
+five providers plus private-overlay scaffolding; concrete launch bindings remain
+recipient-local. The GitHub repository and CI configuration are public. No PyPI
+package or GitHub Release has been published.
 
 ## Capabilities
 
@@ -26,6 +31,9 @@ or published.
 | Backup and restore | Explicit snapshot and rollback output paths |
 | Workspace registry and overlays | Selective, recipient-owned configuration contract |
 | Provider-neutral broker | One request to one explicitly registered in-process adapter |
+
+Wake adapters are optional capabilities. Publishing a bridge event is not a
+wake request, and no component executes event body text as a command.
 
 ## Install and Quickstart
 
@@ -41,11 +49,22 @@ cohestra-bridge --db ./tmp/cohestra/bridge.sqlite3 task-create \
 cohestra-bridge --db ./tmp/cohestra/bridge.sqlite3 health
 cohestra workspace validate \
   --registry ./examples/registry.json --guide ./examples/shared-guide.md
+cohestra adapters detect
+cohestra adapters configure
+cohestra adapters health
 ```
 
 On Windows, an equivalent explicit path is `C:\Temp\cohestra\bridge.sqlite3`.
 The bridge does not discover databases, registry files, credentials, sessions,
 or machine-specific wake bindings.
+
+`cohestra adapters configure` without `--provider` selects a detected,
+non-`unsupported` candidate on `PATH`. It does not overwrite by default and
+rejects Git worktrees and symlinks. This reduces manual path and template entry;
+it is not zero-configuration desktop control. Review the actual runtime and
+provide its launch binding through a recipient-local adapter. A candidate is not
+a verified wake, and delivery is verified only by a correlated response plus
+acknowledgement; current commands do not perform that verification.
 
 ## Architecture
 
