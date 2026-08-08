@@ -113,4 +113,6 @@ mechanism is portable by default.
 ## Contribution and Governance
 
 See [Contributing](CONTRIBUTING.md), [Security](SECURITY.md), and the [Code of
-Conduct](CODE_OF_CONDUCT.md). Cohestra is available under the [MIT License](LICENSE).
+Conduct](CODE_OF_CONDUCT.md). The [contribution guide](CONTRIBUTING.md) defines
+the `dev`-first branch and promotion-PR policy. Cohestra is available under the
+[MIT License](LICENSE).

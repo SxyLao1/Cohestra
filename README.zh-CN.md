@@ -61,4 +61,4 @@ Windows 可使用显式路径 `C:\Temp\cohestra\bridge.sqlite3`。bridge 不会�
 
 公开提取为单向净化提取，不含个人 Memory、活动数据库、凭据、会话标识、机器路径、私有路由或具体桌面唤醒绑定。详见[安全模型](docs/zh-CN/SECURITY_MODEL.md)。
 
-请阅读 [Contributing](CONTRIBUTING.md)、[Security](SECURITY.md) 与[行为准则](CODE_OF_CONDUCT.md)。Cohestra 使用 [MIT License](LICENSE)。
+请阅读 [Contributing](CONTRIBUTING.md)、[Security](SECURITY.md) 与[行为准则](CODE_OF_CONDUCT.md)。[贡献指南](CONTRIBUTING.md)规定以 `dev` 为先的分支与 promotion PR 策略。Cohestra 使用 [MIT License](LICENSE)。
